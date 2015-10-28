@@ -10,13 +10,15 @@ Laravel.ru
 hint: keep tapping the search, it scrolls to the result
 Artisan
 
-// Display HELP for this team 
-php artisan --help or -h
+// Display HELP for this team =>
+**php artisan --help or -h**
 
-// Do not display Message
-php artisan --quiet or -q
-// Version used freymorka
-php artisan --version or -V
+// Do not display Message =>
+**php artisan --quiet or -q**
+
+// Version used freymorka =>
+**php artisan --version or -V**
+
 // Do not ask anything from the user
 php artisan --no-interaction or -n
 // Allow withdrawal of colored text in the console
