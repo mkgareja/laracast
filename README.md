@@ -49,8 +49,9 @@ Artisan
 * Optimize the framework for better performance =>
 **php artisan optimize**
 
- List all registered routes
-php artisan routes
+ ##List all registered routes
+###php artisan routes
+
 * Serve the application on the PHP development server =>
 **php artisan serve**
 * Change the default port =>
@@ -109,62 +110,61 @@ php artisan session: table
 **php artisan view: publish [--path [= "..."]] package**
 php artisan tail [--path [= "..."]] [--lines [= "..."]] [connection]
 
-Composer
+##Composer
 
-composer create-project laravel / laravel folder_name
-composer install
-composer update
-composer dump-autoload [--optimize]
-composer self-update
+**composer create-project laravel / laravel folder_name**
+**composer install**
+**composer update**
+**composer dump-autoload [--optimize]**
+**composer self-update**
 
-Routing
+##Routing
 
 Route :: get ('foo', function () {});
 Route :: get ('foo', 'ControllerName @ function');
 Route :: controller ('foo', 'FooController');
 
-RESTful Controllers
+##RESTful Controllers
 
 Route :: resource ('posts', 'PostsController');
 * Specify a subset of actions to handle on the route =>
 **Route :: resource ('photo', 'PhotoController', ['only' => ['index', 'show']]);**
-Route :: resource ('photo', 'PhotoController', ['except' => ['update', 'destroy']]);
+**Route :: resource ('photo', 'PhotoController', ['except' => ['update', 'destroy']]);**
 
-Triggering Errors
+##Triggering Errors
 
-App :: abort (404);
-App :: missing (function ($ exception) {});
-throw new NotFoundHttpException;
+**App :: abort (404);**
+**App :: missing (function ($ exception) {});**
+**throw new NotFoundHttpException;**
 
-Route Parameters
+##Route Parameters
 
-Route :: get ('foo / {bar}', function ($ bar) {});
-Route :: get ('foo / {bar?}', Function ($ bar = 'bar') {});
+**Route :: get ('foo / {bar}', function ($ bar) {});**
+**Route :: get ('foo / {bar?}', Function ($ bar = 'bar') {});**
 
-HTTP Verbs
+##HTTP Verbs
 
-Route :: any ('foo', function () {});
-Route :: post ('foo', function () {});
-Route :: put ('foo', function () {});
-Route :: patch ('foo', function () {});
-Route :: delete ('foo', function () {});
+**Route :: any ('foo', function () {});**
+**Route :: post ('foo', function () {});**
+**Route :: put ('foo', function () {});**
+**Route :: patch ('foo', function () {});**
+**Route :: delete ('foo', function () {});**
 * RESTful actions =>
 **Route :: resource ('foo', 'FooController');**
 
-Secure Routes
+##Secure Routes
 
-Route :: get ('foo', array ('https', function () {}));
+**Route :: get ('foo', array ('https', function () {}));**
 Route Constraints
-
-Route :: get ('foo / {bar}', function ($ bar) {})
--> where ('bar', '[0-9] +');
-Route :: get ('foo / {bar} / {baz}', function ($ bar, $ baz) {})
--> where (array ('bar' => '[0-9] +', 'baz' => '[A-Za-z]'))
+**Route :: get ('foo / {bar}', function ($ bar) {})
+-> where ('bar', '[0-9] +');**
+**Route :: get ('foo / {bar} / {baz}', function ($ bar, $ baz) {})
+-> where (array ('bar' => '[0-9] +', 'baz' => '[A-Za-z]'))**
 
 * Set a pattern to be used across routes =>
 **Route :: pattern ('bar', '[0-9] +')**
 
-Filters
+##Filters
 
 * Declare an auth filter =>
 **Route :: filter ('auth', function () {});**
@@ -179,40 +179,40 @@ Route :: group (array ('before' => 'auth'), function () {});
 * HTTP verb pattern =>
 **Route :: when ('foo / *', 'foo', array ('post'));**
 
-Named Routes
+##Named Routes
 
-Route :: currentRouteName ();
-Route :: get ('foo / bar', array ('as' => 'foobar', function () {}));
+**Route :: currentRouteName ();**
+**Route :: get ('foo / bar', array ('as' => 'foobar', function () {}));**
 
-Route Prefixing
+##Route Prefixing
 
 * This route group will carry the prefix 'foo' =>
 **Route :: group (array ('prefix' => 'foo'), function () {})**
 
-Route Namespacing
+##Route Namespacing
 
 * This route group will carry the namespace 'Foo \ Bar' =>
 **Route :: group (array ('namespace' => 'Foo \ Bar'), function () {})**
 
-Sub-Domain Routing
+##Sub-Domain Routing
 
 * {Sub} will be passed to the closure =>
 **Route :: group (array ('domain' => '{sub} .example.com'), function () {});**
 
-App
+##App
 
-App :: environment ();
+**App :: environment ();**
 * Test equal to =>
 **App :: environment ('local');**
-App :: runningInConsole ();
-App :: runningUnitTests ();
+**App :: runningInConsole ();**
+**App :: runningUnitTests ();**
 
-Log
+##Log
 
-Log :: info ('info');
-Log :: info ('info', array ('context' => 'additional info'));
-Log :: error ('error');
-Log :: warning ('warning');
+**Log :: info ('info');**
+**Log :: info ('info', array ('context' => 'additional info'));**
+**Log :: error ('error');**
+**Log :: warning ('warning');**
 * Get monolog instance =>
 **Log :: getMonolog ();**
 * Add listener =>
@@ -220,107 +220,107 @@ Log :: warning ('warning');
 * Get all ran queries. =>
 **DB :: getQueryLog ();**
 
-URLs
+##URLs
 
-URL :: full ();
-URL :: current ();
-URL :: previous ();
-URL :: to ('foo / bar', $ parameters, $ secure);
-URL :: action ('FooController @ method', $ parameters, $ absolute);
-URL :: route ('foo', $ parameters, $ absolute);
-URL :: secure ('foo / bar', $ parameters);
-URL :: asset ('css / foo.css', $ secure);
-URL :: secureAsset ('css / foo.css');
-URL :: isValidUrl ('http:*example.com'); =>
+**URL :: full ();**
+**URL :: current ();**
+**URL :: previous ();**
+**URL :: to ('foo / bar', $ parameters, $ secure);**
+**URL :: action ('FooController @ method', $ parameters, $ absolute);**
+**URL :: route ('foo', $ parameters, $ absolute);**
+**URL :: secure ('foo / bar', $ parameters);**
+**URL :: asset ('css / foo.css', $ secure);**
+**URL :: secureAsset ('css / foo.css');**
+*URL :: isValidUrl ('http:*example.com'); =>
 **URL :: getRequest ();**
-URL :: setRequest ($ request);
-URL :: getGenerator ();
-URL :: setGenerator ($ generator);
+**URL :: setRequest ($ request);**
+**URL :: getGenerator ();**
+**URL :: setGenerator ($ generator);**
 
-Events
+##Events
 
-Event :: fire ('foo.bar', array ($ bar));
-Event :: listen ('foo.bar', function ($ bar) {});
-Event :: listen ('foo. *', Function ($ bar) {});
-Event :: listen ('foo.bar', 'FooHandler', 10);
-Event :: listen ('foo.bar', 'BarHandler', 5);
-Event :: listen ('foor.bar', function ($ event) {return false;});
-Event :: queue ('foo', array ($ bar));
-Event :: flusher ('foo', function ($ bar) {});
-Event :: flush ('foo');
-Event :: forget ('foo');
-Event :: subscribe (new FooEventHandler);
+**Event :: fire ('foo.bar', array ($ bar));**
+**Event :: listen ('foo.bar', function ($ bar) {});**
+**Event :: listen ('foo. *', Function ($ bar) {});**
+**Event :: listen ('foo.bar', 'FooHandler', 10);**
+**Event :: listen ('foo.bar', 'BarHandler', 5);**
+**Event :: listen ('foor.bar', function ($ event) {return false;});**
+**Event :: queue ('foo', array ($ bar));**
+**Event :: flusher ('foo', function ($ bar) {});**
+**Event :: flush ('foo');**
+**Event :: forget ('foo');**
+**Event :: subscribe (new FooEventHandler);**
 
-Database
+##Database
 
-DB :: connection ('connection_name');
-DB :: statement ('drop table users');
-DB :: listen (function ($ sql, $ bindings, $ time) {code_here;});
-DB :: transaction (function () {transaction_code_here;});
+**DB :: connection ('connection_name');**
+**DB :: statement ('drop table users');**
+**DB :: listen (function ($ sql, $ bindings, $ time) {code_here;});**
+**DB :: transaction (function () {transaction_code_here;});**
 * Cache a query for $ time minutes =>
 **DB :: table ('users') -> remember ($ time) -> get ();**
 * Escape raw input =>
 **DB :: raw ('sql expression here');**
 
-Selects
+##Selects
 
-DB :: table ('name') -> get ();
-DB :: table ('name') -> distinct () -> get ();
-DB :: table ('name') -> select ('column as column_alias') -> get ();
-DB :: table ('name') -> where ('name', '=', 'John') -> get ();
-DB :: table ('name') -> whereBetween ('column', array (1, 100)) -> get ();
-DB :: table ('name') -> whereIn ('column', array (1, 2, 3)) -> get ();
-DB :: table ('name') -> whereNotIn ('column', array (1, 2, 3)) -> get ();
-DB :: table ('name') -> whereNull ('column') -> get ();
-DB :: table ('name') -> whereNotNull ('column') -> get ();
-DB :: table ('name') -> groupBy ('column') -> get ();
+**DB :: table ('name') -> get ();**
+**DB :: table ('name') -> distinct () -> get ();**
+**DB :: table ('name') -> select ('column as column_alias') -> get ();**
+**DB :: table ('name') -> where ('name', '=', 'John') -> get ();**
+**DB :: table ('name') -> whereBetween ('column', array (1, 100)) -> get ();**
+**DB :: table ('name') -> whereIn ('column', array (1, 2, 3)) -> get ();**
+**DB :: table ('name') -> whereNotIn ('column', array (1, 2, 3)) -> get ();**
+**DB :: table ('name') -> whereNull ('column') -> get ();**
+**DB :: table ('name') -> whereNotNull ('column') -> get ();**
+**DB :: table ('name') -> groupBy ('column') -> get ();
 * Default Eloquent sort is ascendant =>
 **DB :: table ('name') -> orderBy ('column') -> get ();**
-DB :: table ('name') -> orderBy ('column', 'desc') -> get ();
-DB :: table ('name') -> having ('count', '>', 100) -> get ();
-DB :: table ('name') -> skip (10) -> take (5) -> get ();
-DB :: table ('name') -> first ();
-DB :: table ('name') -> pluck ('column');
-DB :: table ('name') -> lists ('column');
+**DB :: table ('name') -> orderBy ('column', 'desc') -> get ();**
+**DB :: table ('name') -> having ('count', '>', 100) -> get ();**
+**DB :: table ('name') -> skip (10) -> take (5) -> get ();**
+**DB :: table ('name') -> first ();**
+**DB :: table ('name') -> pluck ('column');**
+**DB :: table ('name') -> lists ('column');**
 * Joins =>
 **DB :: table ('name') -> join ('table', 'name.id', '=', 'table.id')**
     -> select ('name.id', 'table.email');
 
-Inserts, Updates, Deletes
+##Inserts, Updates, Deletes
 
-DB :: table ('name') -> insert (array ('name' => 'John', 'email' => 'john@example.com'));
-DB :: table ('name') -> insertGetId (array ('name' => 'John', 'email' => 'john@example.com'));
+**DB :: table ('name') -> insert (array ('name' => 'John', 'email' => 'john@example.com'));**
+**DB :: table ('name') -> insertGetId (array ('name' => 'John', 'email' => 'john@example.com'));**
 * Batch insert =>
-**DB :: table ('name') -> insert (array (**
+**DB :: table ('name') -> insert (array (
 array ('name' => 'John', 'email' => 'john@example.com')
 array ('name' => 'James', 'email' => 'james@example.com')
-));
+));**
 * Update an entry =>
-**DB :: table ('name') -> where ('name', '=', 'John')**
--> update (array ('email' => 'john@example2.com'));
+**DB :: table ('name') -> where ('name', '=', 'John')
+-> update (array ('email' => 'john@example2.com'));**
 * Delete everything from a table =>
 **DB :: table ('name') -> delete ();**
 * Delete specific records =>
 **DB :: table ('name') -> where ('id', '>', '10') -> delete ();**
-DB :: table ('name') -> truncate ();
+**DB :: table ('name') -> truncate ();**
 
-Aggregates
+##Aggregates
 
-DB :: table ('name') -> count ();
-DB :: table ('name') -> max ('column');
-DB :: table ('name') -> min ('column');
-DB :: table ('name') -> avg ('column');
-DB :: table ('name') -> sum ('column');
-DB :: table ('name') -> increment ('column');
-DB :: table ('name') -> increment ('column', $ amount);
-DB :: table ('name') -> decrement ('column');
-DB :: table ('name') -> decrement ('column', $ amount);
-DB :: table ('name') -> remember (5) -> get ();
-DB :: table ('name') -> remember (5, 'cache-key-name') -> get ();
-DB :: table ('name') -> cacheTags ('my-key') -> remember (5) -> get ();
-DB :: table ('name') -> cacheTags (array ('my-first-key', 'my-second-key')) -> remember (5) -> get ();
+**DB :: table ('name') -> count ();**
+**DB :: table ('name') -> max ('column');**
+**DB :: table ('name') -> min ('column');**
+**DB :: table ('name') -> avg ('column');**
+**DB :: table ('name') -> sum ('column');**
+**DB :: table ('name') -> increment ('column');**
+**DB :: table ('name') -> increment ('column', $ amount);**
+**DB :: table ('name') -> decrement ('column');**
+**DB :: table ('name') -> decrement ('column', $ amount);**
+**DB :: table ('name') -> remember (5) -> get ();**
+**DB :: table ('name') -> remember (5, 'cache-key-name') -> get ();**
+**DB :: table ('name') -> cacheTags ('my-key') -> remember (5) -> get ();**
+**DB :: table ('name') -> cacheTags (array ('my-first-key', 'my-second-key')) -> remember (5) ->get ();**
 
-Raw Expressions
+##Raw Expressions
 
 * Return rows =>
 **DB :: select ('select * from users where id =?', Array ('value'));**
@@ -333,78 +333,78 @@ DB :: delete ('delete from bar');
 * Raw expression inside a statement =>
 **DB :: table ('name') -> select (DB :: raw ('count (*) as count, column2')) -> get ();**
 
-Eloquent
+##Eloquent
 
-Model :: create (array ('key' => 'value'));
+**Model :: create (array ('key' => 'value'));**
 * Find first matching record by attributes or create =>
 **Model :: firstOrCreate (array ('key' => 'value'));**
 * Find first record by attributes or instantiate =>
 **Model :: firstOrNew (array ('key' => 'value'));**
 * Create or update a record matching attibutes, and fill with values =>
-**Model :: updateOrCreate ($ attributes = array ('key' => 'value'), $ values ​​= array ('key' => 'value'));**
-* Fill a model with an array of attributes, beware of mass assignment! =>
+**Model :: updateOrCreate ($ attributes = array ('key' => 'value'), $ values ​​= array ('key' => **'value'));
+*** Fill a model with an array of attributes, beware of mass assignment! =>**
 **Model :: fill ($ attributes);**
-Model :: destroy (1);
-Model :: all ();
-Model :: find (1);
+**Model :: destroy (1);**
+**Model :: all ();**
+**Model :: find (1);**
 * Find using dual primary key =>
 **Model :: find (array ('first', 'last'));**
 * Throw an exception if the lookup fails =>
 **Model :: findOrFail (1);**
 * Find using dual primary key and throw exception if the lookup fails =>
 **Model :: findOrFail (array ('first', 'last'));**
-Model :: where ('foo', '=', 'bar') -> get ();
-Model :: where ('foo', '=', 'bar') -> first ();
+**Model :: where ('foo', '=', 'bar') -> get ();**
+**Model :: where ('foo', '=', 'bar') -> first ();**
 * Dynamic =>
 **Model :: whereFoo ('bar') -> first ();**
 * Throw an exception if the lookup fails =>
 **Model :: where ('foo', '=', 'bar') -> firstOrFail ();**
-Model :: where ('foo', '=', 'bar') -> count ();
-Model :: where ('foo', '=', 'bar') -> delete ();
+**Model :: where ('foo', '=', 'bar') -> count ();**
+**Model :: where ('foo', '=', 'bar') -> delete ();**
 * Output raw query =>
 **Model :: where ('foo', '=', 'bar') -> toSql ();**
-Model :: whereRaw ('foo = bar and cars = 2', array (20)) -> get ();
-Model :: remember (5) -> get ();
-Model :: remember (5, 'cache-key-name') -> get ();
-Model :: cacheTags ('my-tag') -> remember (5) -> get ();
-Model :: cacheTags (array ('my-first-key', 'my-second-key')) -> remember (5) -> get ();
-Model :: on ('connection-name') -> find (1);
-Model :: with ('relation') -> get ();
-Model :: all () -> take (10);
-Model :: all () -> skip (10);
+**Model :: whereRaw ('foo = bar and cars = 2', array (20)) -> get ();**
+**Model :: remember (5) -> get ();**
+**Model :: remember (5, 'cache-key-name') -> get ();**
+**Model :: cacheTags ('my-tag') -> remember (5) -> get ();**
+**Model :: cacheTags (array ('my-first-key', 'my-second-key')) -> remember (5) -> get ();**
+**Model :: on ('connection-name') -> find (1);**
+**Model :: with ('relation') -> get ();**
+**Model :: all () -> take (10);**
+**Model :: all () -> skip (10);**
 * Default Eloquent sort is ascendant =>
 **Model :: all () -> orderBy ('column');**
-Model :: all () -> orderBy ('column', 'desc');
+**Model :: all () -> orderBy ('column', 'desc');**
 
-Soft Delete
+##Soft Delete
 
-Model :: withTrashed () -> where ('cars', 2) -> get ();
+**Model :: withTrashed () -> where ('cars', 2) -> get ();**
 * Include the soft deleted models in the results =>
 **Model :: withTrashed () -> where ('cars', 2) -> restore ();**
-Model :: where ('cars', 2) -> forceDelete ();
+**Model :: where ('cars', 2) -> forceDelete ();**
 * Force the result set to only included soft deletes =>
 **Model :: onlyTrashed () -> where ('cars', 2) -> get ();**
 
-Events
+##Events
 
-Model :: creating (function ($ model) {});
-Model :: created (function ($ model) {});
-Model :: updating (function ($ model) {});
-Model :: updated (function ($ model) {});
-Model :: saving (function ($ model) {});
-Model :: saved (function ($ model) {});
-Model :: deleting (function ($ model) {});
-Model :: deleted (function ($ model) {});
-Model :: observe (new FooObserver);
+**Model :: creating (function ($ model) {});**
+**Model :: created (function ($ model) {});**
+**Model :: updating (function ($ model) {});**
+**Model :: updated (function ($ model) {});**
+**Model :: saving (function ($ model) {});**
+**Model :: saved (function ($ model) {});**
+**Model :: deleting (function ($ model) {});**
+**Model :: deleted (function ($ model) {});**
+**Model :: observe (new FooObserver);**
 
-Eloquent Configuration
+##Eloquent Configuration
 
 * Disables mass assignment exceptions from being thrown from model inserts and updates =>
 **Eloquent :: unguard ();**
 * Renables any ability to throw mass assignment exceptions =>
 **Eloquent :: reguard ();**
 
-Pagination
+##Pagination
 
 * Auto-Magic Pagination =>
 **Model :: paginate (15);**
@@ -416,7 +416,7 @@ Model :: where ('cars', 2) -> paginate (15);
 * Print page navigators in view =>
 **$ variable-> links ();**
 
-Schema
+##Schema
 
 * Indicate that the table needs to be created =>
 **Schema :: create ('table', function ($ table)**
@@ -446,81 +446,68 @@ Schema
 * Only work on MySQL =>
 **$ table-> string ('name') -> after ('email');**
 
-Indexes
+##Indexes
 
-$ table-> string ('column') -> unique ();
-$ table-> primary ('column');
+**$ table-> string ('column') -> unique ();**
+**$ table-> primary ('column');**
 * Creates a dual primary key =>
 **$ table-> primary (array ('first', 'last'));**
-$ table-> unique ('column');
-$ table-> unique ('column', 'key_name');
+**$ table-> unique ('column');**
+**$ table-> unique ('column', 'key_name');**
 * Creates a dual unique index =>
 **$ table-> unique (array ('first', 'last'));**
-$ table-> unique (array ('first', 'last'), 'key_name');
-$ table-> index ('column');
-$ table-> index ('column', 'key_name');
+**$ table-> unique (array ('first', 'last'), 'key_name');**
+**$ table-> index ('column');**
+**$ table-> index ('column', 'key_name');**
 * Creates a dual index =>
 **$ table-> index (array ('first', 'last'));**
-$ table-> index (array ('first', 'last'), 'key_name');
-$ table-> dropPrimary ('table_column_primary');
-$ table-> dropUnique ('table_column_unique');
-$ table-> dropIndex ('table_column_index');
+**$ table-> index (array ('first', 'last'), 'key_name');**
+**$ table-> dropPrimary ('table_column_primary');**
+**$ table-> dropUnique ('table_column_unique');**
+**$ table-> dropIndex ('table_column_index');**
 
-Foreign Keys
+##Foreign Keys
 
-$ table-> foreign ('user_id') -> references ('id') -> on ('users');
-$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onDelete ('cascade' | 'restrict' | 'set null' | 'no action');
-$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onUpdate ('cascade' | 'restrict' | 'set null' | 'no action');
-$ table-> dropForeign ('posts_user_id_foreign');
+**$ table-> foreign ('user_id') -> references ('id') -> on ('users');**
+**$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onDelete ('cascade' | 'restrict' | 'set null' | 'no action');**
+**$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onUpdate ('cascade' | 'restrict' | 'set null' | 'no action');**
+**$ table-> dropForeign ('posts_user_id_foreign');**
 
-Column Types
+##Column Types
 
 * Increments =>
 **$ table-> increments ('id');**
-$ table-> bigIncrements ('id');
+**$ table-> bigIncrements ('id');**
 
 * Numbers =>
 **$ table-> integer ('votes');**
-$ table-> tinyInteger ('votes');
-$ table-> smallInteger ('votes');
-$ table-> mediumInteger ('votes');
-$ table-> bigInteger ('votes');
-$ table-> float ('amount');
-$ table-> double ('column', 15, 8);
-$ table-> decimal ('amount', 5, 2);
+**$ table-> tinyInteger ('votes');**
+**$ table-> smallInteger ('votes');**
+**$ table-> mediumInteger ('votes');**
+**$ table-> bigInteger ('votes');**
+**$ table-> float ('amount');**
+**$ table-> double ('column', 15, 8);**
+**$ table-> decimal ('amount', 5, 2);**
 
 * String and Text =>
 **$ table-> char ('name', 4);**
-$ table-> string ('email');
-$ table-> string ('name', 100);
-$ table-> text ('description');
-$ table-> mediumText ('description');
-$ table-> longText ('description');
+**$ table-> string ('email');**
+**$ table-> string ('name', 100);**
+**$ table-> text ('description');**
+**$ table-> mediumText ('description');**
+**$ table-> longText ('description');**
 
 * Date and Time =>
 **$ table-> date ('created_at');**
-$ table-> dateTime ('created_at');
-$ table-> time ('sunrise');
-$ table-> timestamp ('added_on');
-$ table-> timestamps ();
+**$ table-> dateTime ('created_at');**
+**$ table-> time ('sunrise');**
+**$ table-> timestamp ('added_on');**
+**$ table-> timestamps ();**
 * Adds created_at and updated_at columns =>
 **$ table-> nullableTimestamps ();**
 
-* Others =>
-**$ table-> binary ('data');**
-$ table-> boolean ('confirmed');
-$ table-> softDeletes ();
-* Adds deleted_at column for soft deletes =>
-**$ table-> enum ('choices', array ('foo', 'bar'));**
-$ table-> rememberToken ();
-* Adds remember_token as VARCHAR (100) NULL =>
-**$ table-> morphs ('parent');**
-* Adds INTEGER parent_id and STRING parent_type =>
-**-> nullable ()**
--> default ($ value)
--> unsigned ()
 
-Input
+##Input
 
 Input :: get ('key');
 * Default if the key is missing =>
@@ -532,7 +519,7 @@ Input :: all ();
 * Disregard 'foo' when getting input =>
 **Input :: except ('foo');**
 
-Session Input (flash)
+##Session Input (flash)
 
 * Flash input to the session =>
 **Input :: flash ();**
@@ -551,41 +538,41 @@ Files
 **Input :: hasFile ('filename');**
 * Access file properties =>
 **Input :: file ('name') -> getRealPath ();**
-Input :: file ('name') -> getClientOriginalName ();
-Input :: file ('name') -> getClientOriginalExtension ();
-Input :: file ('name') -> getSize ();
-Input :: file ('name') -> getMimeType ();
+##Input :: file ('name') -> getClientOriginalName ();##
+##Input :: file ('name') -> getClientOriginalExtension ();##
+##Input :: file ('name') -> getSize ();##
+##Input :: file ('name') -> getMimeType ();##
 * Move an uploaded file =>
 **Input :: file ('name') -> move ($ destinationPath);**
 * Move an uploaded file =>
 **Input :: file ('name') -> move ($ destinationPath, $ fileName);**
 
-Cache
+##Cache
 
-Cache :: put ('key', 'value', $ minutes);
-Cache :: add ('key', 'value', $ minutes);
-Cache :: forever ('key', 'value');
-Cache :: remember ('key', $ minutes, function () {return 'value'});
-Cache :: rememberForever ('key', function () {return 'value'});
-Cache :: forget ('key');
-Cache :: has ('key');
-Cache :: get ('key');
-Cache :: get ('key', 'default');
-Cache :: get ('key', function () {return 'default';});
-Cache :: tags ('my-tag') -> put ('key', 'value', $ minutes);
-Cache :: tags ('my-tag') -> has ('key');
-Cache :: tags ('my-tag') -> get ('key');
-Cache :: tags ('my-tag') -> forget ('key');
-Cache :: tags ('my-tag') -> flush ();
-Cache :: increment ('key');
-Cache :: increment ('key', $ amount);
-Cache :: decrement ('key');
-Cache :: decrement ('key', $ amount);
-Cache :: section ('group') -> put ('key', $ value);
-Cache :: section ('group') -> get ('key');
-Cache :: section ('group') -> flush ();
+**Cache :: put ('key', 'value', $ minutes);**
+**Cache :: add ('key', 'value', $ minutes);**
+**Cache :: forever ('key', 'value');**
+**Cache :: remember ('key', $ minutes, function () {return 'value'});**
+**Cache :: rememberForever ('key', function () {return 'value'});**
+**Cache :: forget ('key');**
+**Cache :: has ('key');**
+**Cache :: get ('key');**
+**Cache :: get ('key', 'default');**
+**Cache :: get ('key', function () {return 'default';});**
+**Cache :: tags ('my-tag') -> put ('key', 'value', $ minutes);**
+**Cache :: tags ('my-tag') -> has ('key');**
+**Cache :: tags ('my-tag') -> get ('key');**
+**Cache :: tags ('my-tag') -> forget ('key');**
+**Cache :: tags ('my-tag') -> flush ();**
+**Cache :: increment ('key');**
+**Cache :: increment ('key', $ amount);**
+**Cache :: decrement ('key');**
+**Cache :: decrement ('key', $ amount);**
+**Cache :: section ('group') -> put ('key', $ value);**
+**Cache :: section ('group') -> get ('key');**
+**Cache :: section ('group') -> flush ();**
 
-Cookies
+##Cookies
 
 Cookie :: get ('key');
 Cookie :: get ('key', 'default');
@@ -602,7 +589,7 @@ Cookie :: get ('key', 'default');
 * Add a cookie to the response =>
 **$ response-> withCookie (Cookie :: make ('name', 'value', $ minutes));**
 
-Sessions
+##Sessions
 
 Session :: get ('key');
 * Returns an item from the session =>
@@ -673,7 +660,7 @@ Requests
 **Request :: wantsJson ();**
 
 
-Responses
+##Responses
 
 return Response :: make ($ contents);
 return Response :: make ($ contents, 200);
@@ -690,7 +677,7 @@ return $ response;
 **return Response :: make ($ content)**
 -> withCookie (Cookie :: make ('key', 'value'));
 
-Redirects
+##Redirects
 
 return Redirect :: to ('foo / bar');
 return Redirect :: to ('foo / bar') -> with ('key', 'value');
@@ -710,7 +697,7 @@ return Redirect :: action ('FooController @ baz', array ('key' => 'value'));
 * If intended redirect is not defined, defaults to foo / bar. =>
 **return Redirect :: intended ('foo / bar');**
 
-IoC
+##IoC
 
 App :: bind ('foo', function ($ app) {return new Foo;});
 App :: make ('foo');
@@ -727,15 +714,15 @@ App :: make ('foo');
 * Listen for object resolution =>
 **App :: resolving (function ($ object) {});**
 
-Security
+#Security
 
-Passwords
+##Passwords
 
-Hash :: make ('secretpassword');
-Hash :: check ('secretpassword', $ hashedPassword);
-Hash :: needsRehash ($ hashedPassword);
+**Hash :: make ('secretpassword');**
+**Hash :: check ('secretpassword', $ hashedPassword);**
+**Hash :: needsRehash ($ hashedPassword);**
 
-Auth
+##Auth
 
 * Determine if the current user is authenticated =>
 **Auth :: check ();**
@@ -764,36 +751,36 @@ Auth
 * Send a password reminder to a user =>
 **Password :: remind ($ credentials, function ($ message, $ user) {});**
 
-Encryption
+##Encryption
 
-Crypt :: encrypt ('secretstring');
-Crypt :: decrypt ($ encryptedString);
-Crypt :: setMode ('ctr');
-Crypt :: setCipher ($ cipher);
+**Crypt :: encrypt ('secretstring');**
+**Crypt :: decrypt ($ encryptedString);**
+**Crypt :: setMode ('ctr');**
+**Crypt :: setCipher ($ cipher);**
 
-Mail
+##Mail
 
-Mail :: send ('email.view', $ data, function ($ message) {});
-Mail :: send (array ('html.view', 'text.view'), $ data, $ callback);
-Mail :: queue ('email.view', $ data, function ($ message) {});
-Mail :: queueOn ('queue-name', 'email.view', $ data, $ callback);
-Mail :: later (5, 'email.view', $ data, function ($ message) {});
+**Mail :: send ('email.view', $ data, function ($ message) {});**
+**Mail :: send (array ('html.view', 'text.view'), $ data, $ callback);**
+**Mail :: queue ('email.view', $ data, function ($ message) {});**
+**Mail :: queueOn ('queue-name', 'email.view', $ data, $ callback);**
+**Mail :: later (5, 'email.view', $ data, function ($ message) {});**
 * Write all email to logs instead of sending =>
 **Mail :: pretend ();**
 
-Messages
+##Messages
 
 * These can be used on the $ message instance passed into Mail :: send () or Mail :: queue () =>
 **$ message-> from ('email@example.com ',' Mr. Example ');**
-$ message-> sender ('email@example.com ',' Mr. Example ');
-$ message-> returnPath ('email@example.com ');
-$ message-> to ('email@example.com ',' Mr. Example ');
-$ message-> cc ('email@example.com ',' Mr. Example ');
-$ message-> bcc ('email@example.com ',' Mr. Example ');
-$ message-> replyTo ('email@example.com ',' Mr. Example ');
-$ message-> subject ('Welcome to the Jungle');
-$ message-> priority (2);
-$ message-> attach ('foo \ bar.txt', $ options);
+**$ message-> sender ('email@example.com ',' Mr. Example ');**
+**$ message-> returnPath ('email@example.com ');**
+**$ message-> to ('email@example.com ',' Mr. Example ');**
+**$ message-> cc ('email@example.com ',' Mr. Example ');**
+**$ message-> bcc ('email@example.com ',' Mr. Example ');**
+**$ message-> replyTo ('email@example.com ',' Mr. Example ');**
+**$ message-> subject ('Welcome to the Jungle');**
+**$ message-> priority (2);**
+**$ message-> attach ('foo \ bar.txt', $ options);**
 * This uses in-memory data as attachments =>
 **$ message-> attachData ('bar', 'Data Name', $ options);**
 * Embed a file in the message and get the CID =>
@@ -802,11 +789,11 @@ $ message-> embedData ('foo', 'Data Name', $ options);
 * Get the underlying Swift Message instance =>
 **$ message-> getSwiftMessage ();**
             
-Queues
+##Queues
 
-Queue :: push ('SendMail', array ('message' => $ message));
-Queue :: push ('SendEmail @ send', array ('message' => $ message));
-Queue :: push (function ($ job) use $ id {});
+**Queue :: push ('SendMail', array ('message' => $ message));**
+**Queue :: push ('SendEmail @ send', array ('message' => $ message));**
+**Queue :: push (function ($ job) use $ id {});**
 * Same payload to multiple workers =>
 **Queue :: bulk (array ('SendEmail', 'NotifyUser'), $ payload);**
 * Starting the queue listener =>
