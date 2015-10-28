@@ -448,8 +448,8 @@ Model :: where ('cars', 2) -> paginate (15);
 
 ##Indexes
 
-**$ table-> string ('column') -> unique ();**
-**$ table-> primary ('column');**
+*$ table-> string ('column') -> unique ();
+*$ table-> primary ('column');
 * Creates a dual primary key =>
 **$ table-> primary (array ('first', 'last'));**
 **$ table-> unique ('column');**
@@ -468,10 +468,10 @@ Model :: where ('cars', 2) -> paginate (15);
 
 ##Foreign Keys
 
-**$ table-> foreign ('user_id') -> references ('id') -> on ('users');**
-**$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onDelete ('cascade' | 'restrict' | 'set null' | 'no action');**
-**$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onUpdate ('cascade' | 'restrict' | 'set null' | 'no action');**
-**$ table-> dropForeign ('posts_user_id_foreign');**
+*$ table-> foreign ('user_id') -> references ('id') -> on ('users');
+*$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onDelete ('cascade' | 'restrict' | 'set null' | 'no action');
+*$ table-> foreign ('user_id') -> references ('id') -> on ('users') -> onUpdate ('cascade' | 'restrict' | 'set null' | 'no action');
+*$ table-> dropForeign ('posts_user_id_foreign');
 
 ##Column Types
 
@@ -481,28 +481,28 @@ Model :: where ('cars', 2) -> paginate (15);
 
 * Numbers =>
 **$ table-> integer ('votes');**
-**$ table-> tinyInteger ('votes');**
-**$ table-> smallInteger ('votes');**
-**$ table-> mediumInteger ('votes');**
-**$ table-> bigInteger ('votes');**
-**$ table-> float ('amount');**
-**$ table-> double ('column', 15, 8);**
-**$ table-> decimal ('amount', 5, 2);**
+*$ table-> tinyInteger ('votes');
+*$ table-> smallInteger ('votes');
+*$ table-> mediumInteger ('votes');
+*$ table-> bigInteger ('votes');
+*$ table-> float ('amount');
+*$ table-> double ('column', 15, 8);
+*$ table-> decimal ('amount', 5, 2);
 
 * String and Text =>
 **$ table-> char ('name', 4);**
-**$ table-> string ('email');**
-**$ table-> string ('name', 100);**
-**$ table-> text ('description');**
-**$ table-> mediumText ('description');**
-**$ table-> longText ('description');**
+*$ table-> string ('email');
+*$ table-> string ('name', 100);
+*$ table-> text ('description');
+*$ table-> mediumText ('description');
+*$ table-> longText ('description');
 
 * Date and Time =>
 **$ table-> date ('created_at');**
-**$ table-> dateTime ('created_at');**
-**$ table-> time ('sunrise');**
-**$ table-> timestamp ('added_on');**
-**$ table-> timestamps ();**
+*$ table-> dateTime ('created_at');
+*$ table-> time ('sunrise');
+*$ table-> timestamp ('added_on');
+*$ table-> timestamps ();
 * Adds created_at and updated_at columns =>
 **$ table-> nullableTimestamps ();**
 
@@ -549,28 +549,28 @@ Files
 
 ##Cache
 
-**Cache :: put ('key', 'value', $ minutes);**
-**Cache :: add ('key', 'value', $ minutes);**
-**Cache :: forever ('key', 'value');**
-**Cache :: remember ('key', $ minutes, function () {return 'value'});**
-**Cache :: rememberForever ('key', function () {return 'value'});**
-**Cache :: forget ('key');**
-**Cache :: has ('key');**
-**Cache :: get ('key');**
-**Cache :: get ('key', 'default');**
-**Cache :: get ('key', function () {return 'default';});**
-**Cache :: tags ('my-tag') -> put ('key', 'value', $ minutes);**
-**Cache :: tags ('my-tag') -> has ('key');**
-**Cache :: tags ('my-tag') -> get ('key');**
-**Cache :: tags ('my-tag') -> forget ('key');**
-**Cache :: tags ('my-tag') -> flush ();**
-**Cache :: increment ('key');**
-**Cache :: increment ('key', $ amount);**
-**Cache :: decrement ('key');**
-**Cache :: decrement ('key', $ amount);**
-**Cache :: section ('group') -> put ('key', $ value);**
-**Cache :: section ('group') -> get ('key');**
-**Cache :: section ('group') -> flush ();**
+*Cache :: put ('key', 'value', $ minutes)
+*Cache :: add ('key', 'value', $ minutes)
+*Cache :: forever ('key', 'value')
+*Cache :: remember ('key', $ minutes, function () {return 'value'})
+*Cache :: rememberForever ('key', function () {return 'value'})
+*Cache :: forget ('key')
+*Cache :: has ('key')
+*Cache :: get ('key')
+*Cache :: get ('key', 'default')
+*Cache :: get ('key', function () {return 'default';})
+*Cache :: tags ('my-tag') -> put ('key', 'value', $ minutes)
+*Cache :: tags ('my-tag') -> has ('key')
+*Cache :: tags ('my-tag') -> get ('key')
+*Cache :: tags ('my-tag') -> forget ('key')
+*Cache :: tags ('my-tag') -> flush ()
+*Cache :: increment ('key')
+*Cache :: increment ('key', $ amount)
+*Cache :: decrement ('key')
+*Cache :: decrement ('key', $ amount)
+*Cache :: section ('group') -> put ('key', $ value)
+*Cache :: section ('group') -> get ('key')
+*Cache :: section ('group') -> flush ()
 
 ##Cookies
 
@@ -662,38 +662,38 @@ Requests
 
 ##Responses
 
-return Response :: make ($ contents);
-return Response :: make ($ contents, 200);
-return Response :: json (array ('key' => 'value'));
-return Response :: json (array ('key' => 'value'))
+*return Response :: make ($ contents);
+*return Response :: make ($ contents, 200);
+*return Response :: json (array ('key' => 'value'));
+*return Response :: json (array ('key' => 'value'))
 -> setCallback (Input :: get ('callback'));
-return Response :: download ($ filepath);
-return Response :: download ($ filepath, $ filename, $ headers);
+*return Response :: download ($ filepath);
+*return Response :: download ($ filepath, $ filename, $ headers);
 * Create a response and modify a header value =>
 **$ response = Response :: make ($ contents, 200);**
 $ response-> header ('Content-Type', 'application / json');
-return $ response;
+*return $ response;
 * Attach a cookie to a response =>
 **return Response :: make ($ content)**
 -> withCookie (Cookie :: make ('key', 'value'));
 
 ##Redirects
 
-return Redirect :: to ('foo / bar');
-return Redirect :: to ('foo / bar') -> with ('key', 'value');
-return Redirect :: to ('foo / bar') -> withInput (Input :: get ());
-return Redirect :: to ('foo / bar') -> withInput (Input :: except ('password'));
-return Redirect :: to ('foo / bar') -> withErrors ($ validator);
+*return Redirect :: to ('foo / bar');
+*return Redirect :: to ('foo / bar') -> with ('key', 'value');
+*return Redirect :: to ('foo / bar') -> withInput (Input :: get ());
+*return Redirect :: to ('foo / bar') -> withInput (Input :: except ('password'));
+*return Redirect :: to ('foo / bar') -> withErrors ($ validator);
 * Create a new redirect response to the previous location =>
 **return Redirect :: back ();**
 * Create a new redirect response to a named route =>
 **return Redirect :: route ('foobar');**
-return Redirect :: route ('foobar', array ('value'));
-return Redirect :: route ('foobar', array ('key' => 'value'));
+*return Redirect :: route ('foobar', array ('value'));
+*return Redirect :: route ('foobar', array ('key' => 'value'));
 * Create a new redirect response to a controller action =>
 **return Redirect :: action ('FooController @ index');**
-return Redirect :: action ('FooController @ baz', array ('value'));
-return Redirect :: action ('FooController @ baz', array ('key' => 'value'));
+*return Redirect :: action ('FooController @ baz', array ('value'));
+*return Redirect :: action ('FooController @ baz', array ('key' => 'value'));
 * If intended redirect is not defined, defaults to foo / bar. =>
 **return Redirect :: intended ('foo / bar');**
 
@@ -798,8 +798,8 @@ $ message-> embedData ('foo', 'Data Name', $ options);
 **Queue :: bulk (array ('SendEmail', 'NotifyUser'), $ payload);**
 * Starting the queue listener =>
 **php artisan queue: listen**
-php artisan queue: listen connection
-php artisan queue: listen --timeout = 60
+*php artisan queue: listen connection
+*php artisan queue: listen --timeout = 60
 * Process only the first job on the queue =>
 **php artisan queue: work**
 * Start a queue worker in daemon mode =>
@@ -813,69 +813,69 @@ php artisan queue: listen --timeout = 60
 * Delete all failed jobs =>
 **php artisan queue: flush**
 
-Validation
+##Validation
 
-Validator :: make (
+*Validator :: make (
 array ('key' => 'Foo'),
 array ('key' => 'required | in: Foo')
 );
-Validator :: extend ('foo', function ($ attribute, $ value, $ params) {});
-Validator :: extend ('foo', 'FooValidator @ validate');
-Validator :: resolver (function ($ translator, $ data, $ rules, $ msgs)
+*Validator :: extend ('foo', function ($ attribute, $ value, $ params) {});
+*Validator :: extend ('foo', 'FooValidator @ validate');
+*Validator :: resolver (function ($ translator, $ data, $ rules, $ msgs)
 {
 return new FooValidator ($ translator, $ data, $ rules, $ msgs);
 });
 
 Rules
 
-accepted
-active_url
-after: YYYY-MM-DD
-before: YYYY-MM-DD
-alpha
-alpha_dash
-alpha_num
-array
-between: 1,10
-confirmed
-date
-date_format: YYYY-MM-DD
-different: fieldname
-digits: value
-digits_between: min, max
-boolean
-email
-exists: table, column
-image
-in: foo, bar, ...
-not_in: foo, bar, ...
-integer
-numeric
-ip
-max: value
-min: value
-mimes: jpeg, png
-regex: [0-9]
-required
-required_if: field, value
-required_with: foo, bar, ...
-required_with_all: foo, bar, ...
-required_without: foo, bar, ...
-required_without_all: foo, bar, ...
-same: field
-size: value
-timezone
-unique: table, column, except, idColumn
-url
+*accepted
+*active_url
+*after: YYYY-MM-DD
+*before: YYYY-MM-DD
+*alpha
+*alpha_dash
+*alpha_num
+*array
+*between: 1,10
+*confirmed
+*date
+*date_format: YYYY-MM-DD
+*different: fieldname
+*digits: value
+*digits_between: min, max
+*boolean
+*email
+*exists: table, column
+*image
+*in: foo, bar, ...
+*not_in: foo, bar, ...
+*integer
+*numeric
+*ip
+*max: value
+*min: value
+*mimes: jpeg, png
+*regex: [0-9]
+*required
+*required_if: field, value
+*required_with: foo, bar, ...
+*required_with_all: foo, bar, ...
+*required_without: foo, bar, ...
+*required_without_all: foo, bar, ...
+*same: field
+*size: value
+*timezone
+*unique: table, column, except, idColumn
+*url
 
 
 Views
 
-View :: make ('path / to / view');
-View :: make ('foo / bar') -> with ('key', 'value');
-View :: make ('foo / bar') -> withKey ('value');
-View :: make ('foo / bar', array ('key' => 'value'));
-View :: exists ('foo / bar');
+*View :: make ('path / to / view');
+*View :: make ('foo / bar') -> with ('key', 'value');
+*View :: make ('foo / bar') -> withKey ('value');
+*View :: make ('foo / bar', array ('key' => 'value'));
+*View :: exists ('foo / bar');
 * Share a value across all views =>
 **View :: share ('key', 'value');**
 * Nesting views =>
@@ -886,7 +886,7 @@ View :: exists ('foo / bar');
 **View :: composer (array ('view1', 'view2'), function ($ view) {});**
 * Register a composer class =>
 **View :: composer ('viewname', 'FooComposer');**
-View :: creator ('viewname', function ($ view) {});
+*View :: creator ('viewname', function ($ view) {});
 
 Blade Templates
 
@@ -900,22 +900,22 @@ extends ('layout.name')
 parent
 * Show a section in a template =>
 **yield ('name')**
-include ('view.name')
-include ('view.name', array ('key' => 'value'));
-lang ('messages.name')
-choice ('messages.name', 1);
-if
-else
-elseif
-endif
-unless
-endunless
-for
-endfor
-foreach
-endforeach
-while
-endwhile
+*include ('view.name')
+*include ('view.name', array ('key' => 'value'));
+*lang ('messages.name')
+*choice ('messages.name', 1);
+*if
+*else 
+*elseif
+*endif
+*unless
+*endunless
+*for
+*endfor
+*foreach
+*endforeach
+*while
+*endwhile
 * forelse 4.2 feature =>
 **forelse ($ users as $ user)**
 empty
@@ -930,53 +930,53 @@ endforelse
 * Displaying Raw Text With Curly Braces =>
 **@ {{This will not be processed by Blade}}**
 
-Forms
+##Forms
 
-Form :: open (array ('url' => 'foo / bar', 'method' => 'PUT'));
-Form :: open (array ('route' => 'foo.bar'));
-Form :: open (array ('route' => array ('foo.bar', $ parameter)));
-Form :: open (array ('action' => 'FooController @ method'));
-Form :: open (array ('action' => array ('FooController @ method', $ parameter)));
-Form :: open (array ('url' => 'foo / bar', 'files' => true));
-Form :: close ();
-Form :: token ();
-Form :: model ($ foo, array ('route' => array ('foo.bar', $ foo-> bar)));
+*Form :: open (array ('url' => 'foo / bar', 'method' => 'PUT'));
+*Form :: open (array ('route' => 'foo.bar'));
+*Form :: open (array ('route' => array ('foo.bar', $ parameter)));
+*Form :: open (array ('action' => 'FooController @ method'));
+*Form :: open (array ('action' => array ('FooController @ method', $ parameter)));
+*Form :: open (array ('url' => 'foo / bar', 'files' => true));
+*Form :: close ();
+*Form :: token ();
+*Form :: model ($ foo, array ('route' => array ('foo.bar', $ foo-> bar)));
 
 
-Form Elements
+##Form Elements
 
-Form :: label ('id', 'Description');
-Form :: label ('id', 'Description', array ('class' => 'foo'));
-Form :: text ('name');
-Form :: text ('name', $ value);
-Form :: text ('name', $ value, array ('class' => 'name'));
-Form :: textarea ('name');
-Form :: textarea ('name', $ value);
-Form :: textarea ('name', $ value, array ('class' => 'name'));
-Form :: hidden ('foo', $ value);
-Form :: password ('password');
-Form :: password ('password', array ('placeholder' => 'Password'));
-Form :: email ('name', $ value, array ());
-Form :: file ('name', array ('class' => 'name'));
-Form :: checkbox ('name', 'value');
+*Form :: label ('id', 'Description');
+*Form :: label ('id', 'Description', array ('class' => 'foo'));
+*Form :: text ('name');
+*Form :: text ('name', $ value);
+*Form :: text ('name', $ value, array ('class' => 'name'));
+*Form :: textarea ('name');
+*Form :: textarea ('name', $ value);
+*Form :: textarea ('name', $ value, array ('class' => 'name'));
+*Form :: hidden ('foo', $ value);
+*Form :: password ('password');
+*Form :: password ('password', array ('placeholder' => 'Password'));
+*Form :: email ('name', $ value, array ());
+*Form :: file ('name', array ('class' => 'name'));
+*Form :: checkbox ('name', 'value');
 * Generating a checkbox that is checked =>
 **Form :: checkbox ('name', 'value', true, array ('class' => 'name'));**
 Form :: radio ('name', 'value');
 * Generating a radio input that is selected =>
 **Form :: radio ('name', 'value', true, array ('class' => 'name'));**
-Form :: select ('name', array ('key' => 'value'));
-Form :: select ('name', array ('key' => 'value'), 'key', array ('class' => 'name'));
-Form :: submit ('Submit!', Array ('class' => 'name'));
-Form :: button ('name', array ('class' => 'name'));
-Form :: macro ('fooField', function ()
+*Form :: select ('name', array ('key' => 'value'));
+*Form :: select ('name', array ('key' => 'value'), 'key', array ('class' => 'name'));
+*Form :: submit ('Submit!', Array ('class' => 'name'));
+*Form :: button ('name', array ('class' => 'name'));
+*Form :: macro ('fooField', function ()
 {
 return '<input type = "custom" />';
 });
-Form :: fooField ();
+*Form :: fooField ();
 
-HTML Builder
+##HTML Builder
 
-HTML :: macro ('name', function () {});
+*HTML :: macro ('name', function () {});
 * Convert an HTML string to entities =>
 **HTML :: entities ($ value);**
 * Convert entities to HTML characters =>
@@ -1015,5 +1015,4 @@ HTML :: macro ('name', function () {});
 **HTML :: nestedListing ($ key, $ type, $ value);**
 * Build an HTML attribute string from an array =>
 **HTML :: attributes ($ attributes);**
-* Build a single attribute element =>
-****
+
