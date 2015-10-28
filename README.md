@@ -11,7 +11,6 @@ hint: keep tapping the search, it scrolls to the result
 Artisan
 
 // Display HELP for this team 
-
 php artisan --help or -h
 
 // Do not display Message
