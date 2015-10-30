@@ -64,7 +64,6 @@ Artisan
 **php artisan up**
 * Create a new package workbench =>
 **php artisan workbench**
-
 * Publish a package's assets to the public directory =>
 **php artisan asset: publish [--bench [= "vendor / package"]] [--path [= "..."]] [package]**
 * Create a migration for the password reminders table =>
@@ -81,7 +80,6 @@ Artisan
 **php artisan db: seed [--class [= "..."]] [--database [= "..."]]**
 * Set the application key =>
 **php artisan key: generate**
-
 * Database migrations =>
 **php artisan migrate [--bench = "vendor / package"] [--database [= "..."]] [--path [= "..."]] [--package [= "... "]] [--pretend] [--seed]**
 * Create the migration repository =>
@@ -96,7 +94,6 @@ Artisan
 **php artisan migrate: rollback [--database [= "..."]] [--pretend]**
 * Publish a package's migrations to migration directory =>
 **php artisan migrate: publish vendor / package**
-
 * Listen to a given queue =>
 **php artisan queue: listen [--queue [= "..."]] [--delay [= "..."]] [--memory [= "..."]] [--timeout [= "..."]] [connection]**
 * Subscribe a URL to an Iron.io push queue =>
@@ -104,11 +101,10 @@ Artisan
 * Process the next job on a queue =>
 **php artisan queue: work [--queue [= "..."]] [--delay [= "..."]] [--memory [= "..."]] [--sleep] [ connection]**
 * Create a migration for the session database table =>
-****
-php artisan session: table
+**php artisan session: table**
 * Publish a package's views to the application =>
 **php artisan view: publish [--path [= "..."]] package**
-php artisan tail [--path [= "..."]] [--lines [= "..."]] [connection]
+**php artisan tail [--path [= "..."]] [--lines [= "..."]] [connection]**
 
 ##Composer
 
