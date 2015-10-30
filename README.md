@@ -49,7 +49,7 @@ Artisan
 * Optimize the framework for better performance =>
 **php artisan optimize**
 
- ##List all registered routes
+##List all registered routes
 ###php artisan routes
 
 * Serve the application on the PHP development server =>
