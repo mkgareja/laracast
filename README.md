@@ -4,50 +4,21 @@
 hint: keep tapping the search, it scrolls to the result
 Artisan
 
-* Display HELP for this team =>
-**php artisan --help or -h**
-
-* Do not display Message =>
-**php artisan --quiet or -q**
-
-* Version used freymorka =>
-**php artisan --version or -V**
-
-* Do not ask anything from the user =>
-**php artisan --no-interaction or -n**
-
-* Allow withdrawal of colored text in the console
-**php artisan --ansi**
-
-* Disable color =>
-**php artisan --no-ansi**
-
-* Assign the runtime environment for the team =>
-**php artisan --env = foo**
-
-* View a list of changes to the current version of the framework =>
-**php artisan changes**
-
-* Delete avtosozdavaemy compiled.php =>
-**php artisan clear-compiled**
-
-* Stop the application (including maintenance mode)=>
-**php artisan down**
-
-* Update the startup files composer =>
-**php artisan dump-autoload**
-
-* Name of the current runtime =>
-**php artisan env**
-
-* Display HELP for this team* =>
-**php artisan help**
-
-* Team List =>
-**php artisan list**
-
-* Optimize the framework for better performance =>
-**php artisan optimize**
+* Display HELP for this team =>**php artisan --help or -h**
+* Do not display Message =>**php artisan --quiet or -q**
+* Version used freymorka =>**php artisan --version or -V**
+* Do not ask anything from the user =>**php artisan --no-interaction or -n**
+* Allow withdrawal of colored text in the console=>**php artisan --ansi**
+* Disable color =>**php artisan --no-ansi**
+* Assign the runtime environment for the team =>**php artisan --env = foo**
+* View a list of changes to the current version of the framework =>**php artisan changes**
+* Delete avtosozdavaemy compiled.php =>**php artisan clear-compiled**
+* Stop the application (including maintenance mode)=>**php artisan down**
+* Update the startup files composer =>**php artisan dump-autoload**
+* Name of the current runtime =>**php artisan env**
+* Display HELP for this team* =>**php artisan help**
+* Team List =>**php artisan list**
+* Optimize the framework for better performance =>**php artisan optimize**
 
 ##List all registered routes
 ###php artisan routes
